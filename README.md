@@ -87,7 +87,7 @@ Master-Hub/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/master-hub.git
+git clone https://github.com/PrathamSinghal001/Master-Hub.git
 cd master-hub
 ```
 
