@@ -121,7 +121,8 @@ python run.py
 ## 📊 Example Screenshots  
 
 > Replace these with your actual screenshots after running your app.
-
+- **Home Page**
+  ![Home Page Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/420df1f87d0c46335410f94cb59f176b6547c93b/Screenshot_25-9-2025_175551_127.0.0.1.jpeg)
 - **Covid-19 App**  
   ![Covid-19 Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/0155bc601fbd74a46cd3bc51a237935258d95f3c/Screenshot_25-9-2025_175244_127.0.0.1.jpeg)  
 
