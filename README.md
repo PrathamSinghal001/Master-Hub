@@ -1,7 +1,7 @@
 # 🌐 Master Hub  
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)  
-![Flask](https://img.shields.io/badge/Flask-Framework-lightgrey)  
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)  |
+![Flask](https://img.shields.io/badge/Flask-Framework-lightgrey)  |
 ![License](https://img.shields.io/badge/License-MIT-green)  
 
 Master Hub is a **Flask-based web application** that combines multiple mini-apps into a single hub.  
