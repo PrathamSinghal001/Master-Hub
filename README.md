@@ -124,11 +124,12 @@ python run.py
 
 - **Home Page**
   ![Home Page Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/420df1f87d0c46335410f94cb59f176b6547c93b/Screenshot_25-9-2025_175551_127.0.0.1.jpeg)
+
 - **Covid-19 App**  
   ![Covid-19 Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/0155bc601fbd74a46cd3bc51a237935258d95f3c/Screenshot_25-9-2025_175244_127.0.0.1.jpeg)  
 
-- **Books App**  
-  ![Books Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/84a418d79aec5f355d5513f6c81323d9a8f70e56/Screenshot_25-9-2025_174716_127.0.0.1.jpeg)  
+- **Weather App**  
+  ![Weather Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/3612ed2ef0f0d5841c9e00cefc5f32fc54b6d630/Screenshot_25-9-2025_181016_127.0.0.1.jpeg)  
 
 - **Crypto App**  
   ![Crypto Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/84a418d79aec5f355d5513f6c81323d9a8f70e56/Screenshot_25-9-2025_17467_127.0.0.1.jpeg)  
