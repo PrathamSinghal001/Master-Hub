@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MasterHub – Centralized access to APIs like weather, stocks, crypto, recipes, and more.">
+    <title>{% block title %}home: Master Hub{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="{{ url_for('main.home') }}">
+                <div>
+                <img src="{{ url_for('static', filename='img/masterhub.png') }}" alt="Logo" class="logo-img">
+                    <span class="logo-title">MasterHub</span>
+                        <span class="logo-slogan">All APIs. One Hub</span>
+                </div>
+
+            </a>
+            <div class="ml-auto">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item mx-2"><a class="nav-link" href="{{ url_for('main.home') }}">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#footer">Contact</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="{{ url_for('auth.profile') }}">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- main -->
+     <main class="container">
+        <!-- ✅ Flash Messages Block -->
+        <div class="container mt-3">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+
+    
+        {% block content %}
+        {% endblock %}
+     </main>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+    <div class="footer-container">
+        <p>&copy; 2025 MasterHub. All rights reserved.</p>
+        <div class="social-links">
+            <a href="http://www.linkedin.com/in/pratham-singhal001" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://github.com/PrathamSinghal001" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://x.com/prathamsinghal0" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="https://wa.me/916376813750?text=Hi%20Pratham,%20I%20visited%20your%20project%20MaterHub%20I%20would%20like%20to%20connect!" target="_blank"><i class="fab fa-whatsapp"></i>
+            </a>
+
+            </a>
+            <a href="mailto:prathamsinghal0011@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+</body>
+</html>

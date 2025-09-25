@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}COVID-19 Resource{% endblock %}
+
+{% block content %}
+<h1 class="text-center">COVID-19 Resource</h1>
+<div class="app-container mt-4">
+    <div class="form-box">
+        <h2 class="text-center">Check Country Stats</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" name="country" id="country" class="form-control" placeholder="Enter country name (e.g., India, USA)" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Data</button>
+        </form>
+
+        {% if stats %}
+        <div class="result-box mt-4">
+            <h4>COVID-19 Stats for {{ country|capitalize }}</h4>
+            <p><strong>Total Cases:</strong> {{ stats["Total Cases"] }}</p>
+            <p><strong>Today's Cases:</strong> {{ stats["Today's Cases"] }}</p>
+            <p><strong>Total Deaths:</strong> {{ stats["Total Deaths"] }}</p>
+            <p><strong>Today's Deaths:</strong> {{ stats["Today's Deaths"] }}</p>
+            <p><strong>Recovered:</strong> {{ stats["Recovered"] }}</p>
+            <p><strong>Active:</strong> {{ stats["Active"] }}</p>
+            <p><strong>Critical:</strong> {{ stats["Critical"] }}</p>
+            <p><strong>Cases per Million:</strong> {{ stats["Cases per Million"] }}</p>
+            <p><strong>Deaths per Million:</strong> {{ stats["Deaths per Million"] }}</p>
+            <p><strong>Population:</strong> {{ stats["Population"] }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

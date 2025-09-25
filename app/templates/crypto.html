@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Cryptocurrency Price Checker {% endblock %}
+
+{% block content %}
+<h1 class="text-center">Cryptocurrency Price Checker</h1>
+
+<div class="app-container mt-4">  <!-- Reuse same styling container -->
+    <h2 class="text-center">Check Crypto Price</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="symbol">Symbol:</label>
+            <input type="text" name="symbol" id="symbol" class="form-control" placeholder="Enter symbol (e.g. BTC, ETH)" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Check Price</button>
+    </form>
+
+    {% if name and symbol and price %}
+    <div class="weather-result">
+        <h4>{{ name }} ({{ symbol.upper() }})</h4>
+        <p><strong>Price:</strong> ${{ '%.2f' | format(price) }}</p>
+        <p><strong>Market Cap:</strong> ${{ '%.2f' | format(market_cap) }}</p>
+        <p><strong>24h Change:</strong> {{ percent_change_24h }}%</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

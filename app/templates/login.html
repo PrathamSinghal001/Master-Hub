@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Login: Master{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 450px;">
+  <h2 class="text-center mb-4">Login to Your Account</h2>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category.lower() }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- Login Form -->
+  <form method="POST" action="{{ url_for('auth.login') }}">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+      {{ form.email.label(class="form-label") }}
+      {{ form.email(class="form-control", placeholder="Enter your email") }}
+    </div>
+
+    <div class="form-group">
+      {{ form.password.label(class="form-label") }}
+      {{ form.password(class="form-control", placeholder="Enter your password") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+  </form>
+
+  <!-- Register Redirect -->
+  <div class="text-center mt-3">
+    <p>Don't have an account?</p>
+    <a href="{{ url_for('auth.register') }}" class="btn btn-outline-secondary">Register</a>
+  </div>
+</div>
+{% endblock %}

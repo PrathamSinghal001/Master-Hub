@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Flight Tracker {% endblock %}
+{% block content %}
+
+<h1 class="text-center">Flight Tracker</h1>
+
+<div class="app-container mt-4">
+    <form method="POST" class="flight-form">
+        <div class="form-group">
+            <input type="text" name="flight_number" id="flight_number" class="form-control" placeholder="Enter Flight Number (e.g. BA2490)" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Track Flight</button>
+    </form>
+
+    {% if flight_data %}
+        <div class="flight-result mt-5 text-center">
+            <h3>Flight: {{ flight_data.flight.iata }} ({{ flight_data.flight.number }})</h3>
+            <p><strong>Airline:</strong> {{ flight_data.airline.name }}</p>
+            <p><strong>Flight Status:</strong> {{ flight_data.flight_status | capitalize }}</p>
+
+            <h4 class="mt-4">Departure</h4>
+            <p><strong>Airport:</strong> {{ flight_data.departure.airport }}</p>
+            <p><strong>Scheduled Time:</strong> {{ flight_data.departure.scheduled | default('N/A') }}</p>
+            <p><strong>Actual Time:</strong> {{ flight_data.departure.actual | default('N/A') }}</p>
+            <p><strong>Terminal:</strong> {{ flight_data.departure.terminal | default('N/A') }}</p>
+            <p><strong>Gate:</strong> {{ flight_data.departure.gate | default('N/A') }}</p>
+
+            <h4 class="mt-4">Arrival</h4>
+            <p><strong>Airport:</strong> {{ flight_data.arrival.airport }}</p>
+            <p><strong>Scheduled Time:</strong> {{ flight_data.arrival.scheduled | default('N/A') }}</p>
+            <p><strong>Actual Time:</strong> {{ flight_data.arrival.actual | default('N/A') }}</p>
+            <p><strong>Terminal:</strong> {{ flight_data.arrival.terminal | default('N/A') }}</p>
+            <p><strong>Gate:</strong> {{ flight_data.arrival.gate | default('N/A') }}</p>
+        </div>
+    {% elif request.method == 'POST' %}
+        <p class="text-center text-danger mt-4">No flight information found for that flight number.</p>
+    {% endif %}
+</div>
+{% endblock %}

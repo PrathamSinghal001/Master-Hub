@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Movie Search {% endblock %}
+{% block content %}
+
+<h1 class="text-center">Search for a Movie</h1>
+
+<div class="app-container mt-4">
+    <h2 class="text-center">Movie Lookup</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Movie Title:</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="e.g. Inception" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Search</button>
+    </form>
+
+    {% if movie %}
+    <div class="weather-result">
+        <h4>{{ movie.Title }} ({{ movie.Year }})</h4>
+        <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+        <p><strong>Director:</strong> {{ movie.Director }}</p>
+        <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+        <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+        <img src="{{ movie.Poster }}" alt="Movie Poster" class="img-fluid mt-3" style="max-height: 300px;">
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

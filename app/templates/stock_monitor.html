@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Stock Monitoring {% endblock %}
+{% block content %}
+<h1 class="text-center">Stock Intraday Data</h1>
+<div class="container mt-4">
+
+    <form method="POST" class="mt-4 mb-4">
+        <div class="form-group">
+            <input type="text" name="symbol" class="form-control" placeholder="Enter stock symbol (e.g. IBM)" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Get Stock Data</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% if stock_data %}
+    <div class="card mt-4 mx-auto" style="max-width: 500px; background-color: #70c8db; color: #fff;">
+        <div class="card-header text-center">
+            <h3>{{ stock_data.symbol }} - Latest Data</h3>
+            <small>{{ stock_data.timestamp }}</small>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Open:</strong> {{ stock_data.open }}</li>
+            <li class="list-group-item"><strong>High:</strong> {{ stock_data.high }}</li>
+            <li class="list-group-item"><strong>Low:</strong> {{ stock_data.low }}</li>
+            <li class="list-group-item"><strong>Close:</strong> {{ stock_data.close }}</li>
+            <li class="list-group-item"><strong>Volume:</strong> {{ stock_data.volume }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

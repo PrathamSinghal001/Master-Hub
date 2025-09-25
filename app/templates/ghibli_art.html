@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Ghibli Art{% endblock %}
+{% block content %}
+<h1 class="text-center">Ghibli Art Generator</h1> 
+<div class="container ghibli-app"> 
+    <form method="POST" enctype="multipart/form-data" class="form-box"> 
+        <div class="form-group"> 
+            <label for="prompt">Prompt</label> 
+            <input type="text" name="prompt" class="form-control" placeholder="Describe your desired Ghibli style..." required> 
+        </div> 
+        <div class="form-group"> 
+            <label for="image">Upload Image</label> 
+            <input type="file" name="image" class="form-control" accept="image/*" required> 
+        </div> 
+        <button type="submit" class="btn btn-primary btn-block">Generate</button> <br><br>
+    </form>
+    {% if image_data_url %}
+        <div class="card h-100" style="background-color: #70c8db; color: #fff;">
+            <h4>Generated Ghibli Style Art</h4>
+            <img src="{{ image_data_url }}" alt="Ghibli Output" class="img-fluid mt-3" style="max-width: 100%; border-radius: 10px;">
+        </div>
+    {% endif %}
+
+{% endblock %}

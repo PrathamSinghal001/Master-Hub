@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Gen AI{% endblock %}
+{% block content %}
+<h1 class="text-center">Generative AI Assistant</h1>
+<div class="app-container mt-4">
+    <form method="POST">
+        <div class="form-group">
+            <label for="prompt">Enter your prompt:</label>
+            <textarea name="prompt" class="form-control" rows="4" placeholder="Ask anything...">{{ prompt or ""}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Generate</button>
+    </form>
+
+    {% if response %}
+    <div class="result-box mt-4 p-3 bg-light rounded shadow-sm" style="color: #000000;">
+        <h5>Generated Response:</h5>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

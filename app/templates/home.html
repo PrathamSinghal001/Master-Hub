@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Home – MasterHub{% endblock %}
+
+{% block content %}
+    <section class="main-section">
+        <div class="card-container">
+
+            <div class="card">
+                <i class="fas fa-cloud"></i>
+                <h3>Weather Forecast</h3>
+                <p>Current conditions & extended outlook.</p>
+                <a href="{{ url_for('main.weather') }}" class="launch-btn">Launch App</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-coins"></i>
+                <h3>Crypto Tracker</h3>
+                <p>Real-time prices & market data.</p>
+                <a href="{{ url_for('main.crypto') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-film"></i>
+                <h3>Movie Search</h3>
+                <p>Discover films & movies for entertainment.</p>
+                <a href="{{ url_for('main.movies') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-football-ball"></i>
+                <h3>Sport Score Board</h3>
+                <p>Latest sports headlines worldwide.</p>
+                <a href="{{ url_for('main.sports_scoreboard') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-plane"></i>
+                <h3>Flight Tracker</h3>
+                <p>Plan trips & explore destinations with our partners.</p>
+                <a href="{{ url_for('main.flight_tracker') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-book"></i>
+                <h3>Books</h3>
+                <p>Book reading is a best hobby, finds book.</p>
+                <a href="{{ url_for('main.books') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-utensils"></i>
+                <h3>Diet Recipe Finder</h3>
+                <p>Find diet recipes & according your ingredents.</p>
+                <a href="{{ url_for('main.recipe_finder') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Stocks Monitor</h3>
+                <p>Market indices and stock info, track process.</p>
+                <a href="{{ url_for('main.stock_monitor') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-virus"></i>
+                <h3>Covid-19 Resource</h3>
+                <p>Generate reports, analysis & reminders.</p>
+                <a href="{{ url_for('main.covid19') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Calendar Sync</h3>
+                <p>Manage events & reminders & schedule your month.</p>
+                <a href="{{ url_for('main.calendar_sync') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Ghibli Art</h3>
+                <p>Turn your photos into beautiful cartoon-style.</p>
+                <a href="{{ url_for('main.ghibli_art') }}" class="launch-btn">Launch App</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>GenAI</h3>
+                <p>Ask questions, solve problems, and spark creativity with AI-powered responses.</p>
+                <a href="{{ url_for('main.gen_ai') }}" class="launch-btn">Launch App</a>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

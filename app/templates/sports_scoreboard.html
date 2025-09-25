@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Sports Score Board{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Search Football Team</h1>
+
+<div class="app-container mt-4">
+    <form method="POST" class="team-form">
+        <div class="form-group">
+            <input type="text" name="team_name" id="team_name" class="form-control" placeholder="Team name (e.g. Arsenal)" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Search</button>
+    </form>
+
+    {% if team_data %}
+        <!-- Team Info -->
+        <div class="team-result mt-5 text-center">
+            <img src="{{ team_data.info.strTeamBadge }}" alt="Team Logo" style="max-width: 150px;">
+            <h3>{{ team_data.info.strTeam }}</h3>
+            <p><strong>Country:</strong> {{ team_data.info.strCountry }}</p>
+            <p><strong>Stadium:</strong> {{ team_data.info.strStadium }}</p>
+            <p><strong>League:</strong> {{ team_data.info.strLeague }}</p>
+            <p><strong>Description:</strong> {{ team_data.info.strDescriptionEN[:400] }}...</p>
+        </div>
+
+        <!-- Players List -->
+        {% if team_data.players %}
+        <div class="mt-4">
+            <h4>Players</h4>
+            <ul class="list-group" style="background-color: #f8f9fa; color: #000;">
+                {% for player in team_data.players %}
+                    <li class="list-group-item" style="background-color: #ffffff; color: #000;">
+                        {{ player.strPlayer }} - {{ player.strPosition or "N/A" }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Recent Matches -->
+        {% if team_data.recent_matches %}
+        <div class="mt-4">
+            <h4>Recent Matches</h4>
+            <ul class="list-group" style="background-color: #f8f9fa; color: #000;">
+                {% for match in team_data.recent_matches %}
+                    <li class="list-group-item" style="background-color: #ffffff; color: #000;">
+                        {{ match.strEvent }} |
+                        Score: {{ match.intHomeScore }} - {{ match.intAwayScore }} |
+                        Winner: <strong>{{ match.winner }}</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+    {% elif request.method == 'POST' %}
+        <p class="text-center text-danger mt-4">No team found with that name.</p>
+    {% endif %}
+</div>
+{% endblock %}

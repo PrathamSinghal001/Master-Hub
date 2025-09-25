@@ -1,0 +1,1 @@
+console.log("Welocme to Master Hub - by Pratham Singhal")

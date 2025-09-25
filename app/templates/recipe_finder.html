@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Diet Recipe Finder {% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center text-white">Diet - Recipe Search</h1>
+
+    <form method="POST" class="mb-4 bg-white p-4 rounded">
+        <div class="form-group">
+            <label for="ingredients">Ingredients (comma separated):</label>
+            <input type="text" class="form-control" id="ingredients" name="ingredients" placeholder="e.g. chicken, tomato" />
+        </div>
+
+        <div class="form-group">
+            <label for="diet">Diet:</label>
+            <select class="form-control" id="diet" name="diet">
+                <option value="">Any</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="ketogenic">Ketogenic</option>
+                <option value="paleo">Paleo</option>
+                <option value="gluten free">Gluten Free</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="intolerances">Intolerances (comma separated):</label>
+            <input type="text" class="form-control" id="intolerances" name="intolerances" placeholder="e.g. dairy, peanuts" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Search Recipes</button>
+    </form>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if recipes %}
+        <div class="row">
+            {% for recipe in recipes %}
+            <div class="col-md-4">
+                <div class="recipe-card" style="background-color: #70c8db; color: #fff;">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img mb-3" />
+                    <h5>{{ recipe.title }}</h5>
+                    <a href="https://spoonacular.com/recipes/{{ recipe.title | replace(' ', '-') }}-{{ recipe.id }}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">View Recipe</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
