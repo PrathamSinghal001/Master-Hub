@@ -7,6 +7,8 @@
 Master Hub is a **Flask-based web application** that combines multiple mini-apps into a single hub.  
 It allows you to explore weather, stock prices, cryptocurrencies, COVID-19 data, and more — all in one place.  
 
+![Home Page Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/94157f66fe13d62f282b7f66bfea40bfcc6aed6b/masterhub_logo.png)
+
 ---
 
 ## 📌 Apps Included
@@ -120,7 +122,6 @@ python run.py
 
 ## 📊 Example Screenshots  
 
-> Replace these with your actual screenshots after running your app.
 - **Home Page**
   ![Home Page Screenshot](https://github.com/PrathamSinghal001/Master-Hub/blob/420df1f87d0c46335410f94cb59f176b6547c93b/Screenshot_25-9-2025_175551_127.0.0.1.jpeg)
 - **Covid-19 App**  
